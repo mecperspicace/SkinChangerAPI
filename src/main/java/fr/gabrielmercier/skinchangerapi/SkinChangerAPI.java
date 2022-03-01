@@ -1,3 +1,5 @@
+package fr.gabrielmercier.skinchangerapi;
+
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerInfo;
