@@ -9,7 +9,6 @@ import org.bukkit.entity.Player;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class GetPlayerSkin {
@@ -17,20 +16,18 @@ public class GetPlayerSkin {
     /**
      * Change the player skin.
      *
-     * @throws MalformedURLException
      * @param uuid            The targeted player's uuid.
      * @return playertextures The property of the player's skin.
      */
 
-    public static Property byUUID(String uuid) throws MalformedURLException {
+    public Property byUUID(String uuid) {
 
-        // Init the request
-        URL url = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid + "?unsigned=false");
         Property playertextures = null;
 
         // Do the request
         try {
 
+            URL url = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid + "?unsigned=false");
             InputStreamReader reponse = new InputStreamReader(url.openStream());
             JsonObject jsonproperty = new JsonParser().parse(reponse).getAsJsonObject().get("properties").getAsJsonArray().get(0).getAsJsonObject();
             String texture = jsonproperty.get("value").getAsString();
@@ -50,20 +47,18 @@ public class GetPlayerSkin {
     /**
      * Change the player skin.
      *
-     * @throws MalformedURLException
      * @param name            The targeted player's name.
      * @return playertextures The property of the player's skin.
      */
 
-    public static Property byName(String name) throws MalformedURLException {
+    public Property byName(String name) {
 
-        // Init the first request
-        URL url1 = new URL("https://api.mojang.com/users/profiles/minecraft/" + name);
         String uuid = "";
 
         // Do the first request
         try {
 
+            URL url1 = new URL("https://api.mojang.com/users/profiles/minecraft/" + name);
             InputStreamReader reponse1 = new InputStreamReader(url1.openStream());
             uuid = new JsonParser().parse(reponse1).getAsJsonObject().get("id").getAsString();
 
@@ -73,14 +68,12 @@ public class GetPlayerSkin {
 
         }
 
-
-        // Init the second request
-        URL url2 = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid + "?unsigned=false");
         Property playertextures = null;
 
         // Do the second request
         try {
 
+            URL url2 = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid + "?unsigned=false");
             InputStreamReader reponse2 = new InputStreamReader(url2.openStream());
             JsonObject jsonproperty = new JsonParser().parse(reponse2).getAsJsonObject().get("properties").getAsJsonArray().get(0).getAsJsonObject();
             String texture = jsonproperty.get("value").getAsString();
@@ -105,7 +98,7 @@ public class GetPlayerSkin {
      * @return playertextures The property of the player's skin.
      */
 
-    public static Property byObject(Player player){
+    public Property byObject(Player player){
 
         // Init the player's connection
         GameProfile profile = ((CraftPlayer) player).getHandle().getProfile();
