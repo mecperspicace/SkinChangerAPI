@@ -14,6 +14,14 @@ import java.net.URL;
 
 public class GetPlayerSkin {
 
+    /**
+     * Change the player skin.
+     *
+     * @throws MalformedURLException
+     * @param uuid            The targeted player's uuid.
+     * @return playertextures The property of the player's skin.
+     */
+
     private static Property byUUID(String uuid) throws MalformedURLException {
 
         // Init the request
@@ -38,6 +46,14 @@ public class GetPlayerSkin {
 
         return playertextures;
     }
+
+    /**
+     * Change the player skin.
+     *
+     * @throws MalformedURLException
+     * @param name            The targeted player's name.
+     * @return playertextures The property of the player's skin.
+     */
 
     private static Property byName(String name) throws MalformedURLException {
 
@@ -81,6 +97,13 @@ public class GetPlayerSkin {
         return playertextures;
 
     }
+
+    /**
+     * Change the player skin.
+     *
+     * @param player          The targeted player's uuid.
+     * @return playertextures The property of the player's skin.
+     */
 
     private static Property byObject(Player player){
 
