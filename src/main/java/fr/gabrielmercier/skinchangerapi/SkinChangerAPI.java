@@ -19,6 +19,8 @@ import java.util.UUID;
 
 public class SkinChangerAPI extends JavaPlugin {
 
+    public static GetPlayerSkin GetPlayerSkin;
+
     /**
      * Change the player skin.
      *
@@ -37,26 +39,6 @@ public class SkinChangerAPI extends JavaPlugin {
         profile.getProperties().removeAll("textures");
         profile.getProperties().put("textures", skinProperty);
         connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, ((CraftPlayer)player).getHandle()));
-    }
-
-    /**
-     * Get the player's skin textures.
-     *
-     * @param playerName      The targeted player's name.
-     *
-     * @return playerTextures Return the player's skin textures.
-     */
-
-    public static Property GetOnlinePlayerSkin(String playerName){
-
-        // Init the player's connection
-        GameProfile profile = ((CraftPlayer)Bukkit.getPlayer(playerName)).getHandle().getProfile();
-
-        // Get the player's textures
-        Property playerTextures = profile.getProperties().get("textures").iterator().next();
-
-        // Return the player's textures
-        return playerTextures;
     }
 
     public static Property GetPlayerSkin(Player player) throws MalformedURLException {
