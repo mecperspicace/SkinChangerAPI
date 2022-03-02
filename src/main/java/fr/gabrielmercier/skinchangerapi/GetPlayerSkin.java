@@ -22,7 +22,7 @@ public class GetPlayerSkin {
      * @return playertextures The property of the player's skin.
      */
 
-    private static Property byUUID(String uuid) throws MalformedURLException {
+    public static Property byUUID(String uuid) throws MalformedURLException {
 
         // Init the request
         URL url = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid + "?unsigned=false");
@@ -55,7 +55,7 @@ public class GetPlayerSkin {
      * @return playertextures The property of the player's skin.
      */
 
-    private static Property byName(String name) throws MalformedURLException {
+    public static Property byName(String name) throws MalformedURLException {
 
         // Init the first request
         URL url1 = new URL("https://api.mojang.com/users/profiles/minecraft/" + name);
@@ -105,7 +105,7 @@ public class GetPlayerSkin {
      * @return playertextures The property of the player's skin.
      */
 
-    private static Property byObject(Player player){
+    public static Property byObject(Player player){
 
         // Init the player's connection
         GameProfile profile = ((CraftPlayer) player).getHandle().getProfile();
@@ -115,4 +115,5 @@ public class GetPlayerSkin {
 
         return new Property("textures", property.getValue(), property.getSignature());
     }
+
 }

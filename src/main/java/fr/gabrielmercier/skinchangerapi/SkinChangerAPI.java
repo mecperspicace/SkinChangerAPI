@@ -1,7 +1,5 @@
 package fr.gabrielmercier.skinchangerapi;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerInfo;
@@ -12,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class SkinChangerAPI extends JavaPlugin {
 
-    public static GetPlayerSkin GetPlayerSkin;
+    private static GetPlayerSkin getPlayerSkin;
 
     /**
      * Change the player skin.
@@ -34,4 +32,7 @@ public class SkinChangerAPI extends JavaPlugin {
         connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, ((CraftPlayer)player).getHandle()));
     }
 
+    public static GetPlayerSkin GetPlayerSkin() {
+        return getPlayerSkin;
+    }
 }
