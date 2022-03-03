@@ -1,5 +1,6 @@
-# SkinChangerAPI
+![SkinChangerAPI](https://user-images.githubusercontent.com/71231848/156544216-ba367464-3743-415c-a550-913e0ae948d9.png)
 
+---
 Lightweight and easy-to-use SkinChangerAPI for Bukkit plugins. 
 
 ## Features
