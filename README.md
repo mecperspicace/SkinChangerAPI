@@ -26,7 +26,7 @@ public void OnJoin(PlayerJoinEvent event) {
 
 ### Getting player's skin
 
-The have many way to get the player's skin textures, the main function is `SkinChangerAPI.GetPlayerSkin()`, for get the player's skin textures you use 3 way : `GetbyUUID()`, `GetbyName()`, `GEtbyObject()`
+The have many way to get the player's skin textures, for get the player's skin textures you can use 3 way : `GetbyUUID()`, `GetbyName()`, `GEtbyObject()`
 
 **By UUID :**
 ```java
