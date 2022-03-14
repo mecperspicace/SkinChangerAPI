@@ -15,24 +15,24 @@ Lightweight and easy-to-use SkinChangerAPI for Bukkit plugins.
 
 ### Change player's skin
 
-The function for change the player's skin is `SkinChangerAPI.Change(Player player, Property textures)` :
+The function for change the player's skin is `SkinChangerAPI.change(Player player, Property textures)` :
 
 ```java
 @EventHandler
 public void OnJoin(PlayerJoinEvent event) {
-    SkinChangerAPI.Change(event.getPlayer(), new Property("textures", skin_value, skin_signature);
+    SkinChangerAPI.change(event.getPlayer(), new Property("textures", skin_value, skin_signature);
 }
 ```
 
 ### Getting player's skin
 
-The have many way to get the player's skin textures, for get the player's skin textures you can use 3 way : `GetbyUUID()`, `GetbyName()`, `GEtbyObject()`
+The have many way to get the player's skin textures, for get the player's skin textures you can use 3 way : `getByUUID()`, `getByName()`, `getByObject()`
 
 **By UUID :**
 ```java
 @EventHandler
 public void OnJoin(PlayerJoinEvent event) {
-    SkinChangerAPI.Change(event.getPlayer(), SkinChangerAPI.GetbyUUID(event.getPlayer.getUniqueID()));
+    SkinChangerAPI.change(event.getPlayer(), SkinChangerAPI.getByUUID(event.getPlayer.getUniqueID()));
 }
 ```
 
@@ -40,7 +40,7 @@ public void OnJoin(PlayerJoinEvent event) {
 ```java
 @EventHandler
 public void OnJoin(PlayerJoinEvent event) {
-    SkinChangerAPI.Change(event.getPlayer(), SkinChangerAPI.GetbyName(event.getPlayer.getName()));
+    SkinChangerAPI.change(event.getPlayer(), SkinChangerAPI.getByName(event.getPlayer.getName()));
 }
 ```
 
@@ -48,6 +48,6 @@ public void OnJoin(PlayerJoinEvent event) {
 ```java
 @EventHandler
 public void OnJoin(PlayerJoinEvent event) {
-    SkinChangerAPI.Change(event.getPlayer(), SkinChangerAPI.GetbyObject(event.getPlayer()));
+    SkinChangerAPI.change(event.getPlayer(), SkinChangerAPI.getByObject(event.getPlayer()));
 }
 ```
