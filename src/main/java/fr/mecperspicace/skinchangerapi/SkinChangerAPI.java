@@ -52,6 +52,9 @@ public class SkinChangerAPI extends JavaPlugin {
 
             URL url = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid + "?unsigned=false");
             InputStreamReader reponse = new InputStreamReader(url.openStream());
+            if (reponse == null) {
+                return DEFAULT_SKIN;
+            }
             JsonObject jsonproperty = new JsonParser().parse(reponse).getAsJsonObject().get("properties").getAsJsonArray().get(0).getAsJsonObject();
             String texture = jsonproperty.get("value").getAsString();
             String signature = jsonproperty.get("signature").getAsString();
@@ -82,6 +85,9 @@ public class SkinChangerAPI extends JavaPlugin {
 
             URL url1 = new URL("https://api.mojang.com/users/profiles/minecraft/" + name);
             InputStreamReader reponse1 = new InputStreamReader(url1.openStream());
+            if (reponse1 == null) {
+                return DEFAULT_SKIN;
+            }
             uuid = new JsonParser().parse(reponse1).getAsJsonObject().get("id").getAsString();
 
         } catch (IOException exception){
@@ -95,6 +101,9 @@ public class SkinChangerAPI extends JavaPlugin {
 
             URL url2 = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid + "?unsigned=false");
             InputStreamReader reponse2 = new InputStreamReader(url2.openStream());
+            if (reponse2 == null) {
+                return DEFAULT_SKIN;
+            }
             JsonObject jsonproperty = new JsonParser().parse(reponse2).getAsJsonObject().get("properties").getAsJsonArray().get(0).getAsJsonObject();
             String texture = jsonproperty.get("value").getAsString();
             String signature = jsonproperty.get("signature").getAsString();
